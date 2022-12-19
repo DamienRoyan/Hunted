@@ -114,8 +114,8 @@ AI for the bulletBoss final boss npc. Makes the npc move towards the player and 
 Contains luas which contain the imports of the different ai luas and entities luas. Makes the main.lua imports less lenghty
 
 This includes:
-AILibrary.lua
-entityLibrary.lua
+AILibrary.lua - Import of all luas in the ai folder
+entityLibrary.lua - Import of all luas in the entities folder, except the ai folder
 
 ###### res (Folder)
 All resources used by the game
@@ -123,12 +123,30 @@ All resources used by the game
 ###### ++++res++++
 
 ###### images (Folder)
-All image resources used
+All image resources used. All images were made by me, using the software GIMP
 
 ###### music (Folder)
-All sound resources used
+All audio resources used. All audio was made using Bosca Ceoil
 
 ###### ----res----
 
 ###### Runnable exe of Hunted:
 This is a readymade executable of Hunted. Clicking on Hunted.exe will open the game. Other files in the same folder are needed to run the game. These are the dll files to run Love2d games. DO NOT DELETE!
+
+
+#### Certain design choices
+##### Language to use
+I think the most basic and important of all, I was debating between Java, a language I am experienced enough to make a game with, or to use lua through Love2d, a completely new language I will have to learn up before then proceeding to make a game with. I ended up choosing lua, because I currently face problems trying to get Java to load resources such as images and sounds from directories within the same folder as the program execution. Even though I would have to completely learn up a new language, Love2d handled this in lua for me. I considered this worth the extra work and chose lua in the end.
+
+The tutorial provided by Sheepolution was fantastic for this: https://sheepolution.com/learn/book/contents
+
+##### An lua for each npc vs blueprint method
+At the beginning of the project, I was intending to make an individual lua for each npc. However on making my second npc, I realised that this was not going to scale well and adding changes would become tedious and the risk of missing out was high. So I decided to follow the blueprint system. I made a copy of the whole project and kept it elsewhere, incase I decided to scrap the idea and tried to get the atleast one npc working on this.
+Under this system, there is **technically** only *one* npc type. And each unique "npcType" is actually just the same npc given different stats, ai and a sprite image. But once I implemented it, I could make as many npcs I wanted with relatively few lines of code.
+This is not my first time doing this, so I had some confidence in this decision. But ofcourse as mentioned, I kept a copy of the project incase I face problems unique to lua.
+
+##### Auto-shoot and aim vs manual attacks
+While manual attacks make the game more engaging, this was a slight disadvantage for laptop users who don't have a mouse to use (my bluetooth mouse needs frequent charging). So as both a personal and user-friendly choice, I made the aiming and firing of player attacks automated. So whether or not you have the privilege of a USB/fully charged mouse, it will not impact playability.
+
+##### Free assets vs self-made assets
+While Free assets provided online are certainly good in quality and quantity, I decided to make everything myself. This choice was motivated by me not being sure if using other peoples assets is allowed and also because this is my first game and I want it to be my own. It was enjoyable and added to the pride I felt for my end product.
